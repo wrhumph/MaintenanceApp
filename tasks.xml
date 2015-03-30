@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!-- 
+maintenance tag:
+    attributes: title, width, height
+    children: base-directory, instructions, task
+    
+base-dir element: specifies the base directory for resolving relative paths
+    attributes: none
+    children: none
+    content: a directory path
+    
+instructions: specify test to show in the task list
+    attributes: margin-top, margin-bottom
+    children: none
+    content: the text to display
+    
+task: specify a task to run
+    attributes: use-shell (true/false)
+    children:
+        name: the name to display on the task list
+        description: a description of the task
+        command: path to the exe or file to run, without arguments
+        args: the arguments to pass to the command
+        
+doscmd: specify a command to run in a DOS command shell
+    attributes:
+        keep-open="true" to keep the cmd window open after command exits
+    children:
+        name: the name to display on the task list
+        description: a description of the task
+        command: the command to run in the DOS command shell
+        
+separator: inserts a horizontal line
+    attributes: none
+    
+-->
+<maintenance width="400" height="400" title="RAPIDS Maintenance Tasks">
+    <base-directory>C:\MMS\Maintenance</base-directory>
+    <panel margin-top="10" margin-bottom="10">
+        <img width="100" height="100" align="left" src="..\..\site_logo.jpg"/>
+        <img width="100" height="100" align="center" src="..\..\site_logo.jpg"/>
+        <img width="100" height="100" align="right" src="..\..\site_logo.jpg"/>
+    </panel>
+    <instructions margin-top="10" margin-bottom="10">
+        Select the maintenance tasks that you want to run, and then click the Run button.
+    </instructions>
+    <separator/>
+    <task>
+        <name>Run Notepad</name>
+        <description>Open a Notepad window</description>
+        <command>notepad.exe</command>
+        <args>C:\users\pete\projects\samplecode\maintenance\tasks.xml</args>
+    </task>
+    <doscmd keep-open="true">
+        <name>Run DIR command</name>
+        <description>Open a DOS window and run the DIR command.</description>
+        <command>DIR C:\</command>
+    </doscmd>
+    <doscmd keep-open="true">
+        <name>Run the SET command</name>
+        <description>Open a DOS window and run the SET command.</description>
+        <command>SET</command>
+    </doscmd>
+    <task use-shell="true">
+        <name>Edit Registry</name>
+        <description>
+            Run regedit.
+        </description>
+        <command>regedit.exe</command>
+    </task>
+</maintenance>

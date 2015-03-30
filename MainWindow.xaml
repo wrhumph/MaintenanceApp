@@ -1,0 +1,19 @@
+﻿<Window x:Class="Maintenance.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Maintenance" Height="244" Width="525">
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="File">
+                <MenuItem Header="Load management script ..."/>
+                <Separator/>
+                <MenuItem Header="Exit" Click="OnExitApp"/>
+            </MenuItem>
+        </Menu>
+        <StatusBar DockPanel.Dock="Bottom">
+            <StatusBarItem Name="m_status_text">Ready</StatusBarItem>
+        </StatusBar>
+        <StackPanel Orientation="Vertical"  Name="m_item_container">
+        </StackPanel>
+    </DockPanel>
+</Window>
