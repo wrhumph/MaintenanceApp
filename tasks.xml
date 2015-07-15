@@ -37,12 +37,12 @@ separator: inserts a horizontal line
 <maintenance width="400" height="400" title="RAPIDS Maintenance Tasks">
     <base-directory>C:\MMS\Maintenance</base-directory>
     <panel margin-top="10" margin-bottom="10">
-        <img width="100" height="100" align="left" src="..\..\site_logo.jpg"/>
-        <img width="100" height="100" align="center" src="..\..\site_logo.jpg"/>
-        <img width="100" height="100" align="right" src="..\..\site_logo.jpg"/>
+        <img width="100" height="100" align="left" src="site_logo.jpg"/>
+        <img width="100" height="100" align="center" src="site_logo.jpg"/>
+        <img width="100" height="100" align="right" src="site_logo.jpg"/>
     </panel>
     <instructions margin-top="10" margin-bottom="10">
-        Select the maintenance tasks that you want to run, and then click the Run button.
+        Select THE maintenance tasks that you want to run, and then click the Run button.
     </instructions>
     <separator/>
     <task>
@@ -50,6 +50,12 @@ separator: inserts a horizontal line
         <description>Open a Notepad window</description>
         <command>notepad.exe</command>
         <args>C:\users\pete\projects\samplecode\maintenance\tasks.xml</args>
+    </task>
+    <task keep-open="true">
+        <name>Run Powershell Script</name>
+        <description>Execute a PowerShell script.</description>
+        <command>powershell</command>
+        <args>-File sample.ps1</args>
     </task>
     <doscmd keep-open="true">
         <name>Run DIR command</name>

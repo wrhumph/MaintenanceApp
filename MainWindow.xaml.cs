@@ -51,6 +51,15 @@ namespace Maintenance
                 }
             }
 
+            if (!File.Exists(m_script_file))
+            {
+                string exe_path = System.Reflection.Assembly.GetEntryAssembly().Location;
+                string exe_dir = System.IO.Path.GetDirectoryName(exe_path).ToLower();
+                if (exe_dir.EndsWith(@"bin\release") || exe_dir.EndsWith(@"bin\debug"))
+                {
+                    Directory.SetCurrentDirectory(@"..\..");
+                }
+            }
             if (File.Exists(m_script_file))
             {
                 try
@@ -306,6 +315,11 @@ namespace Maintenance
             m_active_task = task;
             Process p = new Process();
             p.StartInfo.FileName = task.Command;
+            if (!File.Exists(task.Command))
+            {
+                System.Diagnostics.Trace.WriteLine(task.Command + " not found");
+            }
+            //p.StartInfo.Verb = "Open";
             //p.StartInfo.Verb = "Print";
             //p.StartInfo.CreateNoWindow = true;
             p.StartInfo.UseShellExecute = task.UseCommandShell;
